@@ -10,16 +10,16 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-fugitive'
 Plugin 'pangloss/vim-javascript'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'honza/vim-snippets'
+Plugin 'dylanaraps/wal.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -32,7 +32,6 @@ set softtabstop=2
 set expandtab
 set autoindent
 set smartindent
-set cursorline
 set hlsearch
 set incsearch
 set laststatus=2
@@ -43,12 +42,8 @@ set number
 nmap <C-n> :NERDTreeToggle<CR>
 
 " colorscheme
-set background=dark
-colorscheme solarized 
+colorscheme wal
+let g:jellybeans_use_lowcolor_black = 1
 
 " vim airline
-let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-
-" YouCompleteMe
-let g:ycm_key_list_select_completion = ['<CR>']
