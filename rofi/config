@@ -1,0 +1,5 @@
+rofi.font: xos4 Terminus 9
+rofi.theme: ~/.cache/wal/colors-rofi-dark.rasi
+rofi.modi: run,window,ssh,drun,combi
+rofi.combi-modi: window,drun,ssh
+rofi.terminal: urxvt

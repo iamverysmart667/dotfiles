@@ -1,0 +1,50 @@
+delete 
+cd
+lsblk
+rename rofi-themes
+shell 
+shell lsblk
+open_with
+w
+rename 8.kismet.netxml
+shell
+rename study_schedule.pdf
+open_with firefox
+shel rm $(ls | grep bring)
+shell rm $(ls | grep bring)
+open_with gedit
+bulkrename
+r
+rename azamatr
+mkdir assignment5
+touch task1.py
+o 
+tab_close 
+shell for i in 'seq 2 10'; do touch 'task$i.py' done
+shell`
+shell for i in $(ls | grep .mp3); rm $i
+mkdir
+mkdir English
+delete
+open_with eog
+search task3
+
+o data.txt
+touch data.txt
+rename kkkjtask15.py
+rename task9.py
+rename assignment7-8
+open_with jjj
+find w`
+search dark
+search 
+mkdir bliss
+rename Black Sabbath
+search meteora
+search the number
+search shit
+search The Wall
+open_with j
+q
+search test
+open_with 
