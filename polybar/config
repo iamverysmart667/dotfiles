@@ -1,58 +1,56 @@
 [colors]
 background = ${xrdb:color0:#000}
-background-alt = ${xrdb:color10:#000}
-foreground = ${xrdb:foreground:#fff}
-alt = ${xrdb:foreground:#fff}
+foreground = ${xrdb:color7:#fff}
 
 [bar/top]
-monitor = eDP1 
-width = 1356
-height = 22
+monitor = eDP1
+width = 1366
+height = 20
 
 fixed-center = false
-
-offset-x = 5
-offset-y = 5
-
-border-size = 2
-border-color = ${xrdb:color5:#000}
-
 padding-right = 1
-;separator = 
+
+border-size = 5
+border-color = ${colors.background}
+
+;separator = ׀
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-spacing = 1
+spacing = 0
 module-margin = 1
 
-;font-0 = Noto:size=8:antialias=false;-1
-font-0 = xos4Terminus:pixelsize=12;-1
-font-1 = WunconSiji:size=16;0
+;font-0 = Cantarell:size=10:antialias=true;-1
+font-0 = xos4Terminus:pixelsize=12;1
+font-1 = WunconSiji:size=16;1
 font-2 = Termsynu:size=8:antialias=false;-2
-font-3 = WunconSiji:size=16;0
+font-3 = WunconSiji:size=16;1
 
 modules-left = bspwm
 modules-center = mpd
-modules-right = keyboard alsa wireless-network battery date
+modules-right = keyboard alsa battery wireless-network date clock
 
 tray-position = right
-tray-padding = 0
 tray-detached = false
 tray-maxsize = 16
-;tray-background = ${colors.background}
+tray-background = ${colors.background}
 tray-offset-x = 0
 tray-offset-y = 0
-;tray-padding = 0
-;tray-scale = 1.0
+tray-padding = 0
+tray-scale = 1.0
 
 [module/keyboard]
 type = internal/xkeyboard
 format = <label-layout>
-format-prefix = " "
-format-spacing = 0
-label-layout-padding = 0
+format-prefix = ""
+format-prefix-padding = 1
+format-prefix-background = ${xrdb:color3}
+format-prefix-foreground = ${colors.foreground}
 label-layout = %layout%
+label-layout-padding = 1
+label-layout-background = ${colors.foreground}
+label-layout-foreground = ${colors.background}
 
 [module/battery]
 type = internal/battery
@@ -61,6 +59,24 @@ full-at = 98
 format-charging = <animation-charging><label-charging>
 format-discharging = <ramp-capacity><label-discharging>
 format-full = <ramp-capacity><label-full>
+
+label-charging-background = ${colors.foreground}
+label-charging-foreground = ${colors.background}
+label-charging-padding = 1
+
+label-discharging-background = ${colors.foreground}
+label-discharging-foreground = ${colors.background}
+label-discharging-padding = 1
+
+label-full-background = ${colors.foreground}
+label-full-foreground = ${colors.background}
+label-full-padding = 1
+
+ramp-capacity-background = #796396
+ramp-capacity-padding = 1
+
+animation-charging-background = #796396
+animation-charging-padding = 1
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
@@ -72,14 +88,6 @@ ramp-capacity-6 = 
 ramp-capacity-7 = 
 ramp-capacity-8 = 
 ramp-capacity-9 = 
-
-;ramp-capacity-0 = 
-;ramp-capacity-0-foreground = #f53c3c
-;ramp-capacity-1 = 
-;ramp-capacity-1-foreground = #ffa900
-;ramp-capacity-2 = 
-;ramp-capacity-3 = 
-;ramp-capacity-4 = 
 
 bar-capacity-width = 10
 bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
@@ -122,47 +130,28 @@ ws-icon-11 = desktop4;
 
 format = <label-state> <label-mode>
 
-label-dimmed-underline = ${BAR.background}
+;label-dimmed-underline = ${BAR.background}
 
-label-active = %icon%
-label-active-foreground = ${colors.alt}
-label-active-background = ${colors.background-alt}
-label-active-underline = ${colors.alt}
-label-active-font = 4
+label-active = %icon% %name%
+label-active-foreground = ${colors.background}
+label-active-background = ${colors.foreground}
+;label-active-underline = ${colors.alt}
 label-active-padding = 1
 
 label-occupied = %icon%
 label-occupied-foreground = #dd
-label-occupied-underline = ${colors.alt}
-label-occupied-font = 4
+;label-occupied-underline = ${colors.alt}
 label-occupied-padding = 1
 
 label-urgent = %icon%
 label-urgent-foreground = #000000
 label-urgent-background = #bd2c40
-label-urgent-underline = #9b0a20
-label-urgent-font = 4
+;label-urgent-underline = #9b0a20
 label-urgent-padding = 1
 
 label-empty = %icon%
 label-empty-foreground = #55
-label-empty-font = 4
 label-empty-padding = 1
-
-label-monocle = 
-label-monocle-padding = 0
-
-label-locked = 
-label-locked-foreground = #bd2c40
-label-locked-padding = ${module/bspwm.label-monocle-padding}
-
-label-sticky = 
-label-sticky-foreground = #fba922
-label-sticky-padding = ${module/bspwm.label-monocle-padding}
-
-label-private = 
-label-private-foreground = #bd2c40
-label-private-padding = ${module/bspwm.label-monocle-padding}
 
 [module/bspwm-tmp]
 type = internal/bspwm
@@ -177,39 +166,51 @@ label-empty-padding = 1
 
 [module/date]
 type = internal/date
-date =  %%{F#99}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
-date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
+format = <label>
+format-prefix = ""
+format-prefix-padding = 1
+format-prefix-background = ${xrdb:color9} 
+format-background = ${colors.foreground}
+format-foreground = ${colors.background}
+label = %date%
+label-padding = 1
+date = %d-%m-%Y%
+time = %%{F#2e3440}%H:%M%%{F-}
 
 [module/mpd]
 type = internal/mpd
-format-online =  <label-song>
-
+icon-play = 
+icon-pause = 
+label-song =  %artist% - %title%
+format-online = "<label-song>"
 toggle-on-foreground =
 toggle-off-foreground = #55
 
 [module/wireless-network]
 type = internal/network
-interface = wlan0
+interface = wlp2s0
 interval = 3.0
-ping-interval = 10
+
+label-connected = %essid%
+label-connected-foreground = ${colors.background}
+label-connected-background = ${colors.foreground}
+label-connected-padding = 1
+
+ramp-signal-background = ${xrdb:color5}
+ramp-signal-padding = 1
+
+label-disconnected = 
+label-disconnected-foreground = #66
 
 format-connected = <ramp-signal><label-connected>
-label-connected = %essid%
-label-disconnected =  not connected
-label-disconnected-foreground = #66
-click-left = thunar
+;format-connected = %{A1:$HOME/.config/polybar/scripts/nmcli-rofi:}<ramp-signal><label-connected>%{A}
+;format-disconnected = %{A1:$HOME/.config/polybar/scripts/nmcli-rofi:}<label-disconnected>%{A}
 
 ramp-signal-0 = 
 ramp-signal-1 = 
-ramp-signal-2 =  
+ramp-signal-2 = 
 ramp-signal-3 = 
 ramp-signal-4 = 
-
-animation-packetloss-0 = 
-animation-packetloss-0-foreground = #ffa64c
-animation-packetloss-1 = 
-animation-packetloss-1-foreground = ${bar/top.foreground}
-animation-packetloss-framerate = 500
 
 [module/alsa]
 type = internal/alsa
@@ -218,9 +219,19 @@ speaker-mixer = Speaker
 headphone-id = 14
 
 format-volume = <ramp-volume><label-volume>
-label-muted =   muted
-label-muted-foreground = #66
+format-muted = <ramp-volume><label-muted>
 
+label-volume-foreground = ${colors.background}
+label-volume-background = ${colors.foreground}
+label-volume-padding = 1
+
+label-muted = "MM%"
+label-muted-foreground = ${colors.foreground}
+label-muted-background = ${xrdb:color8}
+label-muted-padding = 1
+
+ramp-volume-padding = 1
+ramp-volume-background = ${xrdb:color4}
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
@@ -229,6 +240,6 @@ ramp-volume-3 = 
 [module/clock]
 type = internal/date
 interval = 2
-date = %%{F#999}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
+date = %%{F#fff}%H:%M%%{F-}
 
 ; vim:ft=dosini
