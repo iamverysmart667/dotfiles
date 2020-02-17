@@ -5,16 +5,60 @@ export SXHKD="$CONFIG/sxhkd"
 export MPD="$CONFIG/mpd"
 export NCMPCPP="$HOME/.ncmpcpp"
 export POLYBAR="$CONFIG/polybar"
+export RANGER="$CONFIG/ranger"
 
-alias bspwmrc="vim $BSPWM/bspwmrc"
-alias sxhkdrc="vim $SXHKD/sxhkdrc"
-alias zshrc="vim $HOME/.zshrc"
-alias polyrc="vim $POLYBAR/config"
-alias vimrc="vim $HOME/.vimrc"
+alias setbspwm="vim $BSPWM/bspwmrc"
+alias setkeys="vim $SXHKD/sxhkdrc"
+alias setshell="vim $HOME/.zshrc"
+alias setpanel="vim $POLYBAR/config"
+alias setvim="vim $HOME/.vimrc"
+
+alias mail="neomutt"
+
+mp3_add_img() {
+  eyeD3 --add-image "$1:FRONT_COVER" $2
+}
+
+mp3_ext_img() {
+  eyeD3 --write-images=./ $1
+}
+
+flac_add_img() {
+  metaflac  --preserve-modtime  --import-picture-from="2||||$1" $2
+}
+
+flac_ext_img() {
+  metaflac --block-number=2 --export-picture-to=FRONT_COVER.jpg "$1" || metaflac --block-number=3 --export-picture-to=FRONT.jpg "$1"
+}
+
+audio_ext_img() {
+  if [[ "$1" == *.flac ]]; then
+    flac_ext_img "$1"
+  else
+    mp3_ext_img "$1"
+  fi
+}
+
+update_dotfiles() {
+  cp $HOME/.vimrc $HOME/dotfiles/.vimrc
+  cp $HOME/.zshrc $HOME/dotfiles/.zshrc
+  cp -r $CONFIG/mpd/* $HOME/dotfiles/mpd/
+  cp -r $HOME/.mutt/* $HOME/dotfiles/mutt/
+  cp -r $CONFIG/bspwm/* $HOME/dotfiles/bspwm/
+  cp -r $CONFIG/sxhkd/* $HOME/dotfiles/sxhkd/
+  cp -r $CONFIG/polybar/* $HOME/dotfiles/polybar/
+  cp -r $CONFIG/ranger/* $HOME/dotfiles/ranger/
+  cp -r $HOME/.ncmpcpp $HOME/dotfiles/ncmpcpp/
+
+  cd $HOME/dotfiles
+  git add -A
+  git commit -m $(echo "updated dotfiles $(date)")
+  git push -u
+}
 
 ZSH_THEME="half-life"
 
-plugins=(git)
+plugins=(git vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 

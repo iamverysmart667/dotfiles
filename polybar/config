@@ -1,6 +1,8 @@
 [colors]
-background = ${xrdb:color0:#000}
-foreground = ${xrdb:color7:#fff}
+background = #CF0C0D0D
+foreground = ${xrdb:foreground:#fff}
+accent = ${xrdb:color2}
+dimmed = #495b61
 
 [bar/top]
 monitor = eDP1
@@ -23,12 +25,11 @@ module-margin = 1
 
 ;font-0 = Cantarell:size=10:antialias=true;-1
 font-0 = xos4Terminus:pixelsize=12;1
+;font-0 = Roboto:size=10;1
 font-1 = WunconSiji:size=16;1
-font-2 = Termsynu:size=8:antialias=false;-2
-font-3 = WunconSiji:size=16;1
 
 modules-left = bspwm
-modules-center = mpd
+;modules-center = mpd
 modules-right = keyboard alsa battery wireless-network date clock
 
 tray-position = right
@@ -45,7 +46,7 @@ type = internal/xkeyboard
 format = <label-layout>
 format-prefix = ""
 format-prefix-padding = 1
-format-prefix-background = ${xrdb:color3}
+format-prefix-background = ${colors.accent}
 format-prefix-foreground = ${colors.foreground}
 label-layout = %layout%
 label-layout-padding = 1
@@ -72,10 +73,10 @@ label-full-background = ${colors.foreground}
 label-full-foreground = ${colors.background}
 label-full-padding = 1
 
-ramp-capacity-background = #796396
+ramp-capacity-background = ${colors.accent} 
 ramp-capacity-padding = 1
 
-animation-charging-background = #796396
+animation-charging-background = ${colors.accent} 
 animation-charging-padding = 1
 
 ramp-capacity-0 = 
@@ -88,15 +89,6 @@ ramp-capacity-6 = 
 ramp-capacity-7 = 
 ramp-capacity-8 = 
 ramp-capacity-9 = 
-
-bar-capacity-width = 10
-bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
-bar-capacity-fill = █
-bar-capacity-fill-foreground = #ddffffff
-bar-capacity-fill-font = 3
-bar-capacity-empty = █
-bar-capacity-empty-font = 3
-bar-capacity-empty-foreground = #44ffffff
 
 animation-charging-0 = 
 animation-charging-1 = 
@@ -130,12 +122,9 @@ ws-icon-11 = desktop4;
 
 format = <label-state> <label-mode>
 
-;label-dimmed-underline = ${BAR.background}
-
 label-active = %icon% %name%
 label-active-foreground = ${colors.background}
 label-active-background = ${colors.foreground}
-;label-active-underline = ${colors.alt}
 label-active-padding = 1
 
 label-occupied = %icon%
@@ -169,7 +158,8 @@ type = internal/date
 format = <label>
 format-prefix = ""
 format-prefix-padding = 1
-format-prefix-background = ${xrdb:color9} 
+format-prefix-background = ${colors.accent} 
+format-prefix-foreground= ${colors.foreground} 
 format-background = ${colors.foreground}
 format-foreground = ${colors.background}
 label = %date%
@@ -196,7 +186,7 @@ label-connected-foreground = ${colors.background}
 label-connected-background = ${colors.foreground}
 label-connected-padding = 1
 
-ramp-signal-background = ${xrdb:color5}
+ramp-signal-background = ${colors.accent}
 ramp-signal-padding = 1
 
 label-disconnected = 
@@ -214,8 +204,6 @@ ramp-signal-4 = 
 
 [module/alsa]
 type = internal/alsa
-headphone-mixer = Headphone
-speaker-mixer = Speaker
 headphone-id = 14
 
 format-volume = <ramp-volume><label-volume>
@@ -227,11 +215,11 @@ label-volume-padding = 1
 
 label-muted = "MM%"
 label-muted-foreground = ${colors.foreground}
-label-muted-background = ${xrdb:color8}
+label-muted-background = ${colors.dimmed}
 label-muted-padding = 1
 
 ramp-volume-padding = 1
-ramp-volume-background = ${xrdb:color4}
+ramp-volume-background = ${colors.accent}
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 

@@ -12,6 +12,7 @@ bspc config gapless_monocle        true
 bspc rule -a Nemo                   desktop='files'       follow=on
 bspc rule -a Thunar                 desktop='files'       follow=on
 bspc rule -a Firefox                desktop='web'         follow=on
+bspc rule -a Chromium               desktop='web'         follow=on
 bspc rule -a TelegramDesktop        desktop='telegram'    follow=on
 bspc rule -a URxvt:ranger           desktop='files'       follow=on
 bspc rule -a URxvt:ncmpcpp          desktop='music'       follow=on  rectangle=680x300+520+134  state=floating 
@@ -30,10 +31,12 @@ compton --backend glx --vsync opengl-swc -b &
 sxhkd &
 mpd &
 
+wal -i ~/Wallpapers/japan.jpg -a 90 --saturate 0.2
+
 . $HOME/.zshrc
 
 $BSPWM/polybar.sh
-$BSPWM/workflow.sh
+#$BSPWM/workflow.sh
 
 # Switch keyboard layout
 setxkbmap -layout us,ru

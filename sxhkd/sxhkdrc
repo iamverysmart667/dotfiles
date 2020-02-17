@@ -6,6 +6,11 @@
 super + Return
   urxvt
 
+# lock screen
+ctrl + shift + l
+  betterlockscreen -l blur dim
+
+# start workflow
 super + n
   /home/azamat/.config/bspwm/workflow.sh &
 
@@ -20,7 +25,7 @@ super + shift + e
 
 # application launcher
 super + @space
-  rofi -show combi
+  rofi -show run
 
 # window switcher
 super + q

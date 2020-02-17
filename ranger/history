@@ -1,34 +1,5 @@
-delete 
-cd
-lsblk
-rename rofi-themes
-shell 
-shell lsblk
-open_with
-w
-rename 8.kismet.netxml
-shell
-rename study_schedule.pdf
-open_with firefox
-shel rm $(ls | grep bring)
-shell rm $(ls | grep bring)
-open_with gedit
-bulkrename
-r
-rename azamatr
-mkdir assignment5
-touch task1.py
-o 
-tab_close 
-shell for i in 'seq 2 10'; do touch 'task$i.py' done
-shell`
-shell for i in $(ls | grep .mp3); rm $i
-mkdir
-mkdir English
-delete
 open_with eog
 search task3
-
 o data.txt
 touch data.txt
 rename kkkjtask15.py
@@ -47,4 +18,33 @@ search The Wall
 open_with j
 q
 search test
+rename config
+wq
+search Front
+mkdir day4
+touch 
+open_with zathura
+mkdir day6
+touch hash.cpp
+touch trie.cpp
+mkdir b.cpp
 open_with 
+mkdir a
+touch a.cpp
+open_with vim
+
+shell for f in *; do
+save_copy_buffer 
+shell for f in *; if [ -d "$f"]; rm $f; 
+search OUTPUT
+search OTHER
+search *.png
+search .png
+search fear
+search kon
+search konsp
+mkdir Arduino
+!zip
+shell zip -r project-1
+touch A.cpp
+touch b.cpp
