@@ -52,7 +52,7 @@ update_dotfiles() {
 
   cd $HOME/dotfiles
   git add -A
-  git commit -m $(echo "updated dotfiles $(date)")
+  git commit -m $(echo "updated dotfiles $(date +"%d.%m.%Y")")
   git push -u
 }
 

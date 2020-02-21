@@ -1,6 +1,3 @@
-open_with eog
-search task3
-o data.txt
 touch data.txt
 rename kkkjtask15.py
 rename task9.py
@@ -32,7 +29,6 @@ open_with
 mkdir a
 touch a.cpp
 open_with vim
-
 shell for f in *; do
 save_copy_buffer 
 shell for f in *; if [ -d "$f"]; rm $f; 
@@ -48,3 +44,7 @@ mkdir Arduino
 shell zip -r project-1
 touch A.cpp
 touch b.cpp
+search acl
+search avl
+
+shell 
