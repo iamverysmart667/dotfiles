@@ -1,6 +1,14 @@
 #! /bin/sh
 
-bspc monitor -d files web telegram music desktop1 desktop2 desktop3 desktop4
+xsetroot -cursor_name left_ptr &
+
+if [[ $(xrandr | grep "HDMI1 connected") ]]; then
+  ./lenovo.sh
+  bspc monitor HDMI1 -d desktop1 desktop2 desktop3 desktop4
+  bspc monitor eDP1 -d files web telegram music
+else
+  bspc monitor -d files web telegram music desktop1 desktop2 desktop3 desktop4
+fi
 
 bspc config border_width           2
 bspc config window_gap             5
@@ -14,6 +22,7 @@ bspc rule -a Thunar                 desktop='files'       follow=on
 bspc rule -a Firefox                desktop='web'         follow=on
 bspc rule -a Chromium               desktop='web'         follow=on
 bspc rule -a TelegramDesktop        desktop='telegram'    follow=on
+bspc rule -a Slack                  desktop='telegram'    follow=on
 bspc rule -a URxvt:ranger           desktop='files'       follow=on
 bspc rule -a URxvt:ncmpcpp          desktop='music'       follow=on  rectangle=680x300+520+134  state=floating 
 bspc rule -a URxvt:cava             desktop='music'       follow=on  rectangle=1010x200+190+464  state=floating
@@ -26,17 +35,23 @@ bspc rule -a Transmission-gtk       state=floating
 bspc rule -a Gnome-system-monitor   state=floating
 bspc rule -a Zathura                state=fullscreen
 bspc rule -a mpv                    state=fullscreen
+bspc rule -a Sxiv                   state=fullscreen
+
+xset +fp /home/azamat/.local/share/fonts
+xset fp rehash
 
 compton --backend glx --vsync opengl-swc -b &
 sxhkd &
-mpd &
 
-wal -i ~/Wallpapers/japan.jpg -a 90 --saturate 0.2
+#wal -i ~/Wallpapers/japan.jpg -a 90 --saturate 0.2
+#wal -i ~/Wallpapers/pine.jpg -a 90 --saturate 0.55
+wal -i ~/Wallpapers/3-windows.jpg -a 90 --saturate 0.3
 
 . $HOME/.zshrc
 
 $BSPWM/polybar.sh
-#$BSPWM/workflow.sh
+
+$BSPWM/workflow.sh
 
 # Switch keyboard layout
 setxkbmap -layout us,ru

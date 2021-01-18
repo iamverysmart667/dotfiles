@@ -1,12 +1,49 @@
 [colors]
-background = #CF0C0D0D
+;background = #CF0C0D0D
+background = #B2000000
 foreground = ${xrdb:foreground:#fff}
 accent = ${xrdb:color2}
 dimmed = #495b61
 
-[bar/top]
+[bar/default]
 monitor = eDP1
+wm-restack = bspwm
 width = 1366
+height = 20
+
+fixed-center = false
+padding-right = 1
+
+border-size = 4
+border-color = ${colors.background}
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+spacing = 0
+module-margin = 1
+
+;font-0 = Cantarell:size=10:antialias=true;-1
+font-0 = Terminus (TTF):size=9;1
+;font-0 = Go Mono Nerd Font:size=10;1
+font-1 = WunconSiji:size=16;1
+
+modules-left = bspwm
+modules-center = mpd
+modules-right = keyboard alsa battery wireless-network date clock
+
+tray-position = right
+tray-detached = false
+tray-maxsize = 16
+tray-background = ${colors.background}
+tray-offset-x = 0
+tray-offset-y = 0
+tray-padding = 0
+tray-scale = 1.0
+
+[bar/main]
+monitor = HDMI1
+width = 1920
 height = 20
 
 fixed-center = false
@@ -30,6 +67,42 @@ font-1 = WunconSiji:size=16;1
 
 modules-left = bspwm
 ;modules-center = mpd
+modules-right = keyboard alsa battery wireless-network date clock
+
+tray-position = right
+tray-detached = false
+tray-maxsize = 16
+tray-background = ${colors.background}
+tray-offset-x = 0
+tray-offset-y = 0
+tray-padding = 0
+tray-scale = 1.0
+
+[bar/secondary]
+monitor = eDP1
+width = 1366
+height = 20
+
+fixed-center = false
+padding-right = 1
+
+border-size = 5
+border-color = ${colors.background}
+
+;separator = ׀
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+spacing = 0
+module-margin = 1
+
+;font-0 = Cantarell:size=10:antialias=true;-1
+font-0 = xos4Terminus:pixelsize=12;1
+;font-0 = Roboto:size=10;1
+font-1 = WunconSiji:size=16;1
+
+modules-left = bspwm mpd
 modules-right = keyboard alsa battery wireless-network date clock
 
 tray-position = right
@@ -122,13 +195,16 @@ ws-icon-11 = desktop4;
 
 format = <label-state> <label-mode>
 
-label-active = %icon% %name%
+label-active = %icon%
 label-active-foreground = ${colors.background}
 label-active-background = ${colors.foreground}
+label-active-underline = ${colors.accent}
 label-active-padding = 1
 
 label-occupied = %icon%
-label-occupied-foreground = #dd
+label-occupied-foreground= ${colors.foreground}
+;label-occupied-foreground = #dd
+
 ;label-occupied-underline = ${colors.alt}
 label-occupied-padding = 1
 
@@ -139,7 +215,8 @@ label-urgent-background = #bd2c40
 label-urgent-padding = 1
 
 label-empty = %icon%
-label-empty-foreground = #55
+label-empty-foreground = ${xrdb:color1}
+;label-empty-background = ${colors.foreground}
 label-empty-padding = 1
 
 [module/bspwm-tmp]
