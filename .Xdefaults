@@ -1,0 +1,14 @@
+URxvt.scrollBar: false
+URxvt.font: xft:Terminus (TTF):size=9
+!URxvt.font: xft:FantasqueSansMono Nerd Font:size=10
+!URxvt.font: xft:Inconsolata-dz for Powerline:size=10
+!URxvt.font: xft:Go Mono Nerd Font:style=Medium:size=10
+!URxvt.font: xft:Droid Sans Mono for Powerline:size=11
+!URxvt.font: xft:Roboto Mono for Powerline:size=10
+URxvt.cursorBlink: 1
+URxvt.internalBorder: 10
+URxvt.boldFont:
+!URxvt.background: #000000
+!URxvt.perl-ext-common: default,resize-font
+!URxvt.resize-font.bigger:  M-k
+!URxvt.resize-font.smaller: M-j
