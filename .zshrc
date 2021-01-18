@@ -1,19 +1,85 @@
+VISUAL=nvim; export VISUAL EDITOR=nvim; export EDITOR
+
+setopt extendedglob
+
+export GPG_TTY=$(tty)
+export JAVA_HOME=/usr/bin/java
+export PATH_TO_FX=/home/azamat/SDU/Java/javafx-sdk-11.0.2/lib/
+export LD_LIRBARY_PATH=/usr/lib/perl5/5.32/core_perl/CORE
+export XDG_CONFIG_HOME=/home/azamat/.config/
+
 export ZSH="/home/azamat/.oh-my-zsh"
-export CONFIG="$HOME/.config"
+export CONFIG="$XDG_CONFIG_HOME"
 export BSPWM="$CONFIG/bspwm"
 export SXHKD="$CONFIG/sxhkd"
 export MPD="$CONFIG/mpd"
 export NCMPCPP="$HOME/.ncmpcpp"
 export POLYBAR="$CONFIG/polybar"
 export RANGER="$CONFIG/ranger"
+export WALL="$HOME/Wallpapers/"
+export JOPLIN="$HOME/joplin"
 
-alias setbspwm="vim $BSPWM/bspwmrc"
-alias setkeys="vim $SXHKD/sxhkdrc"
-alias setshell="vim $HOME/.zshrc"
-alias setpanel="vim $POLYBAR/config"
-alias setvim="vim $HOME/.vimrc"
+alias vim=nvim
+alias setterm="vim $HOME/.Xdefaults"
+alias setwm="vim $BSPWM/bspwmrc"
+alias setkb="vim $SXHKD/sxhkdrc"
+alias setsh="vim $HOME/.zshrc"
+alias setpan="vim $POLYBAR/config"
+alias setvim="vim $CONFIG/nvim/init.vim"
+
+alias rswp="rm  -rf $HOME/.local/share/nvim/swap/*"
+
+# API testing
+alias send="curl -H 'Content-Type: application/json' --request POST -d"
+
+# SDU
+alias sa="cd $HOME/SDU/ACM"
+alias acm="cd $HOME/SDU/ACM/contests"
+
+# Temp
+alias p="cd $HOME/SDU/3-junior/Web/playground"
+
+alias pp="cd $HOME/Junk/project/project/project"
+alias pa="cd $HOME/Junk/project/project/app"
+
+# Portal
+#alias p="cd $HOME/portal.sdu.back-end"
+#alias ps="cd $HOME/portal.sdu.back-end/src"
+#alias psm="cd $HOME/portal.sdu.back-end/src/models"
+#alias psp="cd $HOME/portal.sdu.back-end/src/pipe"
+#alias psr="cd $HOME/portal.sdu.back-end/src/routes"
+#alias psc="cd $HOME/portal.sdu.back-end/src/config"
+#alias psl="cd $HOME/portal.sdu.back-end/src/loaders"
+#alias rp="cd $HOME/portal.sdu.back-end && npm run dev"
+
+# One
+alias o="cd /home/azamat/Repos/one-lab-scala/src/main/scala/one/lab/tasks"
+alias one="cd /home/azamat/Repos/one-lab-scala/"
+
+# Node
+NODE_PACKAGES="${HOME}/.node-packages"
+export PATH="$PATH:$NODE_PACKAGES/bin"
+export MANPATH="${MANPATH-$(manpath)}:$NODE_PACKAGES/share/man"
+
+alias ni="npm install"
+alias ns="npm start"
+alias nd="node inspect"
+
+# Vim
+alias vpi="vim -c PlugInstall"
+alias vpc="vim -c PlugClean"
 
 alias mail="neomutt"
+
+wl() {
+  [[ -f "$WALL/$1.jpg" ]] && wal -i "$WALL/$1.jpg" -a 90 --saturate 0.3
+  [[ -f "$WALL/$1.png" ]] && wal -i "$WALL/$1.png" -a 90 --saturate 0.3
+}
+
+cl() {
+  [[ -f "$WALL/$1.jpg" ]] && wal -i "$WALL/$1.jpg" --saturate 0.3
+  [[ -f "$WALL/$1.png" ]] && wal -i "$WALL/$1.png" --saturate 0.3
+}
 
 mp3_add_img() {
   eyeD3 --add-image "$1:FRONT_COVER" $2
@@ -39,6 +105,12 @@ audio_ext_img() {
   fi
 }
 
+2gif() {
+  ffmpeg -i "$1" frame%04d.png
+  gifski -o file.gif frame*.png
+  for f in $(ls | grep frame); rm "$f"
+}
+
 update_dotfiles() {
   cp $HOME/.vimrc $HOME/dotfiles/.vimrc
   cp $HOME/.zshrc $HOME/dotfiles/.zshrc
@@ -58,7 +130,7 @@ update_dotfiles() {
 
 ZSH_THEME="half-life"
 
-plugins=(git vi-mode)
+#plugins=(git vi-mode zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 

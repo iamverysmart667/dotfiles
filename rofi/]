@@ -1,8 +1,5 @@
-rofi.font: Terminus (TTF) 9
-/*rofi.font: Cantarell 10*/
+rofi.font: Terminus (TTF) 10
 rofi.theme: ~/.cache/wal/colors-rofi-dark.rasi
 rofi.modi: run,window,ssh,drun,combi
 rofi.combi-modi: window,drun,ssh
 rofi.terminal: urxvt
-rofi.run_list_command: ""
-rofi.drun-use-desktop-cache: true
