@@ -1,0 +1,7 @@
+{
+  "diagnostic.infoSign": "--",
+  "typescript.showUnused": false,
+  "javascript.showUnused": false,
+  "languageserver": {
+  }
+}

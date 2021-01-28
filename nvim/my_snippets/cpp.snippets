@@ -1,0 +1,130 @@
+snippet acm
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+int main(int argc, char** argv) {
+#ifdef LOCAL
+	freopen(strcat(argv[0], ".in"), "ab+", stdin);
+#endif
+	
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+	
+	${1:}
+	
+	return 0;
+}
+endsnippet
+
+snippet inc
+#include <${1:vector}>
+endsnippet
+
+snippet cout
+cout << ${1:};
+endsnippet
+
+snippet coutn
+cout << ${1:} << endl;
+endsnippet
+
+snippet cin
+cin >> ${1:};
+endsnippet
+
+snippet vec
+vector<${1:int}> ${2:v};
+endsnippet
+
+snippet set
+set<${1:}> ${2:s};
+endsnippet
+
+snippet uset
+unordered_set<${1:}> ${2:s};
+endsnippet
+
+snippet que
+queue<${1:}> ${2:q};
+endsnippet
+
+snippet pair
+pair<${1:}, ${2:}> ${3:p};
+endsnippet
+
+snippet map
+map<${1:}, ${2:}> ${3:};
+endsnippet
+
+snippet umap
+unordered_map<${1:}, ${2:}> ${3:};
+endsnippet
+
+snippet bs
+bitset<${1:}> ${2:};
+endsnippet
+
+snippet sort
+sort(${1:}.begin(), $1.end());
+endsnippet
+
+snippet rev
+reverse(${1:}.begin(), $1.end());
+endsnippet
+
+snippet be
+${1:v}.begin(), $1.end()
+endsnippet
+
+snippet sof
+sizeof(${1:})
+endsnippet
+
+snippet vi
+vector<int>
+endsnippet
+
+snippet vii
+vector< vector<int> >
+endsnippet
+
+snippet vpi
+vector< pair<int, int> >
+endsnippet
+
+snippet main
+#include <iostream>
+
+int main(int argc, char** argv)
+{
+	${1:}
+
+	return 0;
+}
+endsnippet
+
+snippet for
+for (int ${1:i} = 0; $1 < ${2:n}; $1++) $3
+endsnippet
+
+snippet forv
+for (size_t ${2:i} = 0; $2 < $1.size(); $2++) ${3:}
+endsnippet
+
+snippet forit
+for (auto it : ${1:}) ${2:}
+endsnippet
+
+snippet pb
+$1.push_back($2);
+endsnippet
+
+snippet pf
+$1.push_front($2);
+endsnippet
+
+snippet pp
+$1.pop_back($2);
+endsnippet

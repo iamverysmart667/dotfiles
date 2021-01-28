@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/azamat/Repos/dotfiles/rofi'
+let g:netrw_dirhist_2='/home/azamat/M'
+let g:netrw_dirhist_1='/home/azamat/.ncmpcpp'
+let g:netrw_dirhist_0='/home/azamat/t'
+let g:netrw_dirhist_9='/home/azamat/.config/configstore'
+let g:netrw_dirhist_8='/home/azamat/Repos/CV'
+let g:netrw_dirhist_7='/home/azamat/Repos'
+let g:netrw_dirhist_6='/home/azamat'
+let g:netrw_dirhist_5='/home/azamat/SDU'
+let g:netrw_dirhist_4='/home/azamat/SDU/3-junior'
