@@ -2,13 +2,13 @@
 
 xsetroot -cursor_name left_ptr &
 
-if [[ $(xrandr | grep "HDMI1 connected") ]]; then
-  ./lenovo.sh
-  bspc monitor HDMI1 -d desktop1 desktop2 desktop3 desktop4
-  bspc monitor eDP1 -d files web telegram music
-else
-  bspc monitor -d files web telegram music desktop1 desktop2 desktop3 desktop4
-fi
+#if [[ $(xrandr | grep "HDMI1 connected") ]]; then
+#  ./lenovo.sh
+#  bspc monitor HDMI1 -d desktop1 desktop2 desktop3 desktop4
+#  bspc monitor eDP1 -d files web telegram music
+#else
+#  bspc monitor -d files web telegram music desktop1 desktop2 desktop3 desktop4
+#fi
 
 bspc config border_width           2
 bspc config window_gap             5
@@ -40,7 +40,7 @@ bspc rule -a Sxiv                   state=fullscreen
 xset +fp /home/azamat/.local/share/fonts
 xset fp rehash
 
-compton --backend glx --vsync opengl-swc -b &
+picom &
 sxhkd &
 
 #wal -i ~/Wallpapers/japan.jpg -a 90 --saturate 0.2
@@ -50,7 +50,6 @@ wal -i ~/Wallpapers/3-windows.jpg -a 90 --saturate 0.3
 . $HOME/.zshrc
 
 $BSPWM/polybar.sh
-
 $BSPWM/workflow.sh
 
 # Switch keyboard layout
